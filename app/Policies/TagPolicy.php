@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Tag;
+use App\Models\MoneyTag;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -15,7 +15,7 @@ class TagPolicy
 
     }
 
-    public function view(User $user, Tag $tag): bool
+    public function view(User $user, MoneyTag $tag): bool
     {
     }
 
@@ -23,19 +23,19 @@ class TagPolicy
     {
     }
 
-    public function update(User $user, Tag $tag): bool
+    public function update(User $user, MoneyTag $tag): bool
     {
     }
 
-    public function delete(User $user, Tag $tag): bool
+    public function delete(User $user, MoneyTag $tag): bool
     {
     }
 
-    public function restore(User $user, Tag $tag): bool
+    public function restore(User $user, MoneyTag $tag): bool
     {
     }
 
-    public function forceDelete(User $user, Tag $tag): bool
+    public function forceDelete(User $user, MoneyTag $tag): bool
     {
     }
 }

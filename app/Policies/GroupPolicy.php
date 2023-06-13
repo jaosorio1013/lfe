@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Group;
+use App\Models\MoneyGroup;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -15,7 +15,7 @@ class GroupPolicy
 
     }
 
-    public function view(User $user, Group $group): bool
+    public function view(User $user, MoneyGroup $group): bool
     {
     }
 
@@ -23,19 +23,19 @@ class GroupPolicy
     {
     }
 
-    public function update(User $user, Group $group): bool
+    public function update(User $user, MoneyGroup $group): bool
     {
     }
 
-    public function delete(User $user, Group $group): bool
+    public function delete(User $user, MoneyGroup $group): bool
     {
     }
 
-    public function restore(User $user, Group $group): bool
+    public function restore(User $user, MoneyGroup $group): bool
     {
     }
 
-    public function forceDelete(User $user, Group $group): bool
+    public function forceDelete(User $user, MoneyGroup $group): bool
     {
     }
 }

@@ -4,32 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PayeeRequest;
 use App\Http\Resources\PayeeResource;
-use App\Models\Payee;
+use App\Models\MoneyPayee;
 
 class PayeeController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Payee::class);
+        $this->authorize('viewAny', MoneyPayee::class);
 
-        return PayeeResource::collection(Payee::all());
+        return PayeeResource::collection(MoneyPayee::all());
     }
 
     public function store(PayeeRequest $request)
     {
-        $this->authorize('create', Payee::class);
+        $this->authorize('create', MoneyPayee::class);
 
-        return new PayeeResource(Payee::create($request->validated()));
+        return new PayeeResource(MoneyPayee::create($request->validated()));
     }
 
-    public function show(Payee $payee)
+    public function show(MoneyPayee $payee)
     {
         $this->authorize('view', $payee);
 
         return new PayeeResource($payee);
     }
 
-    public function update(PayeeRequest $request, Payee $payee)
+    public function update(PayeeRequest $request, MoneyPayee $payee)
     {
         $this->authorize('update', $payee);
 
@@ -38,7 +38,7 @@ class PayeeController extends Controller
         return new PayeeResource($payee);
     }
 
-    public function destroy(Payee $payee)
+    public function destroy(MoneyPayee $payee)
     {
         $this->authorize('delete', $payee);
 

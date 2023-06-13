@@ -4,32 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GroupRequest;
 use App\Http\Resources\GroupResource;
-use App\Models\Group;
+use App\Models\MoneyGroup;
 
 class GroupController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Group::class);
+        $this->authorize('viewAny', MoneyGroup::class);
 
-        return GroupResource::collection(Group::all());
+        return GroupResource::collection(MoneyGroup::all());
     }
 
     public function store(GroupRequest $request)
     {
-        $this->authorize('create', Group::class);
+        $this->authorize('create', MoneyGroup::class);
 
-        return new GroupResource(Group::create($request->validated()));
+        return new GroupResource(MoneyGroup::create($request->validated()));
     }
 
-    public function show(Group $group)
+    public function show(MoneyGroup $group)
     {
         $this->authorize('view', $group);
 
         return new GroupResource($group);
     }
 
-    public function update(GroupRequest $request, Group $group)
+    public function update(GroupRequest $request, MoneyGroup $group)
     {
         $this->authorize('update', $group);
 
@@ -38,7 +38,7 @@ class GroupController extends Controller
         return new GroupResource($group);
     }
 
-    public function destroy(Group $group)
+    public function destroy(MoneyGroup $group)
     {
         $this->authorize('delete', $group);
 
