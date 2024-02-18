@@ -9,9 +9,9 @@ class LocationsSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->runSqlFile('countries');
-        $this->runSqlFile('states');
-        $this->runSqlFile('cities');
+        $this->runSqlFile('location_countries');
+        $this->runSqlFile('location_states');
+        $this->runSqlFile('location_cities');
     }
 
     private function runSqlFile(string $sqlFileName): void

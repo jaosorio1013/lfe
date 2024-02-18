@@ -4,32 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CountryRequest;
 use App\Http\Resources\CountryResource;
-use App\Models\Country;
+use App\Models\LocationCountry;
 
 class CountryController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
+        $this->authorize('viewAny', LocationCountry::class);
 
-        return CountryResource::collection(Country::all());
+        return CountryResource::collection(LocationCountry::all());
     }
 
     public function store(CountryRequest $request)
     {
-        $this->authorize('create', Country::class);
+        $this->authorize('create', LocationCountry::class);
 
-        return new CountryResource(Country::create($request->validated()));
+        return new CountryResource(LocationCountry::create($request->validated()));
     }
 
-    public function show(Country $country)
+    public function show(LocationCountry $country)
     {
         $this->authorize('view', $country);
 
         return new CountryResource($country);
     }
 
-    public function update(CountryRequest $request, Country $country)
+    public function update(CountryRequest $request, LocationCountry $country)
     {
         $this->authorize('update', $country);
 
@@ -38,7 +38,7 @@ class CountryController extends Controller
         return new CountryResource($country);
     }
 
-    public function destroy(Country $country)
+    public function destroy(LocationCountry $country)
     {
         $this->authorize('delete', $country);
 

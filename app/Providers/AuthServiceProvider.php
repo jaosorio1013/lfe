@@ -5,8 +5,8 @@ namespace App\Providers;
 // use Illuminate\Support\Facades\Gate;
 use App\Models\MoneyAccount;
 use App\Models\MoneyCategory;
-use App\Models\City;
-use App\Models\Country;
+use App\Models\LocationCity;
+use App\Models\LocationCountry;
 use App\Models\MoneyGroup;
 use App\Models\Holiday;
 use App\Models\MoneySchedule;
@@ -18,7 +18,7 @@ use App\Models\Phase;
 use App\Models\Project;
 use App\Models\ProjectPhase;
 use App\Models\ProjectSpace;
-use App\Models\State;
+use App\Models\LocationState;
 use App\Models\MoneyTag;
 use App\Models\MoneyTransaction;
 use App\Policies\AccountPolicy;
@@ -61,9 +61,9 @@ class AuthServiceProvider extends ServiceProvider
         ProjectPhase::class => ProjectPhasePolicy::class,
         Phase::class => PhasePolicy::class,
         Holiday::class => HolidayPolicy::class,
-        Country::class => CountryPolicy::class,
-        State::class => StatePolicy::class,
-        City::class => CityPolicy::class,
+        LocationCountry::class => CountryPolicy::class,
+        LocationState::class => StatePolicy::class,
+        LocationCity::class => CityPolicy::class,
         MoneyCategory::class => CategoryPolicy::class,
         MoneySchedule::class => MoneySchedulePolicy::class,
         NoteType::class => NoteTypePolicy::class,

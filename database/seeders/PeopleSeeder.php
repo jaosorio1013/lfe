@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\City;
-use App\Models\Country;
+use App\Models\LocationCity;
+use App\Models\LocationCountry;
 use App\Models\Person;
-use App\Models\State;
+use App\Models\LocationState;
 use Illuminate\Database\Seeder;
 
 class PeopleSeeder extends Seeder
@@ -36,14 +36,14 @@ class PeopleSeeder extends Seeder
 
     private function createPeople(array $people): void
     {
-        $colombiaId = Country::where('name', 'Colombia')->value('id');
-        $antioquiaId = State::where('country_id', $colombiaId)->where('name', 'Antioquia')->value('id');
-        $santanderId = State::where('country_id', $colombiaId)->where('name', 'Santander')->value('id');
+        $colombiaId = LocationCountry::where('name', 'Colombia')->value('id');
+        $antioquiaId = LocationState::where('country_id', $colombiaId)->where('name', 'Antioquia')->value('id');
+        $santanderId = LocationState::where('country_id', $colombiaId)->where('name', 'Santander')->value('id');
 
         foreach ($people as $person) {
             $person['country_id'] = $colombiaId;
             $person['state_id'] = $person['departamento'] === 'Antioquia' ? $antioquiaId : $santanderId;
-            $person['city_id'] = City::where('state_id', $person['state_id'])->where('name', $person['city'])->value('id');
+            $person['city_id'] = LocationCity::where('state_id', $person['state_id'])->where('name', $person['city'])->value('id');
 
             unset($person['departamento'], $person['city']);
 

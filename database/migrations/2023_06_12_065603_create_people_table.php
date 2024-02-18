@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\City;
-use App\Models\Country;
+use App\Models\LocationCity;
+use App\Models\LocationCountry;
 use App\Models\Person;
-use App\Models\State;
+use App\Models\LocationState;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,9 +20,9 @@ return new class extends Migration {
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('alias')->nullable()->index();
-            $table->foreignIdFor(Country::class)->nullable();
-            $table->foreignIdFor(State::class)->nullable();
-            $table->foreignIdFor(City::class)->nullable();
+            $table->foreignIdFor(LocationCountry::class)->nullable();
+            $table->foreignIdFor(LocationState::class)->nullable();
+            $table->foreignIdFor(LocationCity::class)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

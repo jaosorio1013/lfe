@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Country;
+use App\Models\LocationCountry;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -15,7 +15,7 @@ class CountryPolicy
 
     }
 
-    public function view(User $user, Country $country): bool
+    public function view(User $user, LocationCountry $country): bool
     {
     }
 
@@ -23,19 +23,19 @@ class CountryPolicy
     {
     }
 
-    public function update(User $user, Country $country): bool
+    public function update(User $user, LocationCountry $country): bool
     {
     }
 
-    public function delete(User $user, Country $country): bool
+    public function delete(User $user, LocationCountry $country): bool
     {
     }
 
-    public function restore(User $user, Country $country): bool
+    public function restore(User $user, LocationCountry $country): bool
     {
     }
 
-    public function forceDelete(User $user, Country $country): bool
+    public function forceDelete(User $user, LocationCountry $country): bool
     {
     }
 }

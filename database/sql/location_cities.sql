@@ -1,4 +1,4 @@
-INSERT INTO `cities` (`id`, `name`, `state_id`, `country_id`) VALUES (1,"Andorra la Vella",488,6),
+INSERT INTO `location_cities` (`id`, `name`, `location_state_id`, `location_country_id`) VALUES (1,"Andorra la Vella",488,6),
 (2,"Arinsal",493,6),
 (3,"Canillo",489,6),
 (4,"El Tarter",489,6),

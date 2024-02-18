@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Country extends Model
+class LocationCity extends Model
 {
     protected $fillable = [
+        'country_id',
+        'state_id',
         'name',
-        'code',
-        'phone_code',
     ];
 }

@@ -4,32 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CityRequest;
 use App\Http\Resources\CityResource;
-use App\Models\City;
+use App\Models\LocationCity;
 
 class CityController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', City::class);
+        $this->authorize('viewAny', LocationCity::class);
 
-        return CityResource::collection(City::all());
+        return CityResource::collection(LocationCity::all());
     }
 
     public function store(CityRequest $request)
     {
-        $this->authorize('create', City::class);
+        $this->authorize('create', LocationCity::class);
 
-        return new CityResource(City::create($request->validated()));
+        return new CityResource(LocationCity::create($request->validated()));
     }
 
-    public function show(City $city)
+    public function show(LocationCity $city)
     {
         $this->authorize('view', $city);
 
         return new CityResource($city);
     }
 
-    public function update(CityRequest $request, City $city)
+    public function update(CityRequest $request, LocationCity $city)
     {
         $this->authorize('update', $city);
 
@@ -38,7 +38,7 @@ class CityController extends Controller
         return new CityResource($city);
     }
 
-    public function destroy(City $city)
+    public function destroy(LocationCity $city)
     {
         $this->authorize('delete', $city);
 

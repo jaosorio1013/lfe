@@ -1,4 +1,4 @@
-INSERT INTO `states` (`id`, `name`, `country_id`) VALUES (1,"Southern Nations, Nationalities, and Peoples\' Region",70),
+INSERT INTO `location_states` (`id`, `name`, `location_country_id`) VALUES (1,"Southern Nations, Nationalities, and Peoples\' Region",70),
 (2,"Somali Region",70),
 (3,"Amhara Region",70),
 (4,"Tigray Region",70),

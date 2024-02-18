@@ -4,32 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StateRequest;
 use App\Http\Resources\StateResource;
-use App\Models\State;
+use App\Models\LocationState;
 
 class StateController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', State::class);
+        $this->authorize('viewAny', LocationState::class);
 
-        return StateResource::collection(State::all());
+        return StateResource::collection(LocationState::all());
     }
 
     public function store(StateRequest $request)
     {
-        $this->authorize('create', State::class);
+        $this->authorize('create', LocationState::class);
 
-        return new StateResource(State::create($request->validated()));
+        return new StateResource(LocationState::create($request->validated()));
     }
 
-    public function show(State $state)
+    public function show(LocationState $state)
     {
         $this->authorize('view', $state);
 
         return new StateResource($state);
     }
 
-    public function update(StateRequest $request, State $state)
+    public function update(StateRequest $request, LocationState $state)
     {
         $this->authorize('update', $state);
 
@@ -38,7 +38,7 @@ class StateController extends Controller
         return new StateResource($state);
     }
 
-    public function destroy(State $state)
+    public function destroy(LocationState $state)
     {
         $this->authorize('delete', $state);
 

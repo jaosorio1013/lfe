@@ -1,4 +1,4 @@
-INSERT INTO `countries` (`id`, `name`, `code`, `phone_code`) VALUES (1,"Afghanistan","AFG","93"),
+INSERT INTO `location_countries` (`id`, `name`, `code`, `phone_code`) VALUES (1,"Afghanistan","AFG","93"),
 (2,"Aland Islands","ALA","+358-18"),
 (3,"Albania","ALB","355"),
 (4,"Algeria","DZA","213"),

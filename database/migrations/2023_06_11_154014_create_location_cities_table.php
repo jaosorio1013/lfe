@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Country;
+use App\Models\LocationCountry;
+use App\Models\LocationState;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -8,15 +9,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('location_cities', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Country::class);
             $table->string('name')->index();
+            $table->foreignIdFor(LocationState::class);
+            $table->foreignIdFor(LocationCountry::class);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('cities');
     }
 };
