@@ -9,8 +9,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class LocationCity extends Model
 {
     protected $fillable = [
-        'country_id',
-        'state_id',
+        'location_country_id',
+        'location_state_id',
         'name',
     ];
+
+    public function location_state()
+    {
+        return $this->belongsTo(LocationState::class);
+    }
+
+    public function location_country()
+    {
+        return $this->belongsTo(LocationCountry::class);
+    }
 }

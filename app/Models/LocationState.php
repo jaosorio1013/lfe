@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class LocationState extends Model
 {
     protected $fillable = [
-        'country_id',
+        'location_country_id',
         'name',
     ];
 }

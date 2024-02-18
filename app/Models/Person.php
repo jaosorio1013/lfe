@@ -32,8 +32,8 @@ class Person extends Model
         return $this->hasMany(Project::class);
     }
 
-    public function money_payee(): HasOne
-    {
-        return $this->hasOne(MoneyPayee::class);
-    }
+    // public function money_payee(): HasOne
+    // {
+    //     return $this->hasOne(MoneyPayee::class);
+    // }
 }

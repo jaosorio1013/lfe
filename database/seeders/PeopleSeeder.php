@@ -37,13 +37,13 @@ class PeopleSeeder extends Seeder
     private function createPeople(array $people): void
     {
         $colombiaId = LocationCountry::where('name', 'Colombia')->value('id');
-        $antioquiaId = LocationState::where('country_id', $colombiaId)->where('name', 'Antioquia')->value('id');
-        $santanderId = LocationState::where('country_id', $colombiaId)->where('name', 'Santander')->value('id');
+        $antioquiaId = LocationState::where('location_country_id', $colombiaId)->where('name', 'Antioquia')->value('id');
+        $santanderId = LocationState::where('location_country_id', $colombiaId)->where('name', 'Santander')->value('id');
 
         foreach ($people as $person) {
-            $person['country_id'] = $colombiaId;
-            $person['state_id'] = $person['departamento'] === 'Antioquia' ? $antioquiaId : $santanderId;
-            $person['city_id'] = LocationCity::where('state_id', $person['state_id'])->where('name', $person['city'])->value('id');
+            $person['location_country_id'] = $colombiaId;
+            $person['location_state_id'] = $person['departamento'] === 'Antioquia' ? $antioquiaId : $santanderId;
+            $person['location_city_id'] = LocationCity::where('location_state_id', $person['location_state_id'])->where('name', $person['city'])->value('id');
 
             unset($person['departamento'], $person['city']);
 
