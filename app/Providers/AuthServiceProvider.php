@@ -11,6 +11,8 @@ use App\Models\MoneyGroup;
 use App\Models\Holiday;
 use App\Models\MoneySchedule;
 use App\Models\MoneyPayee;
+use App\Models\Note;
+use App\Models\NoteType;
 use App\Models\Person;
 use App\Models\Phase;
 use App\Models\Project;
@@ -26,6 +28,8 @@ use App\Policies\CountryPolicy;
 use App\Policies\GroupPolicy;
 use App\Policies\HolidayPolicy;
 use App\Policies\MoneySchedulePolicy;
+use App\Policies\NotePolicy;
+use App\Policies\NoteTypePolicy;
 use App\Policies\PayeePolicy;
 use App\Policies\PersonPolicy;
 use App\Policies\PhasePolicy;
@@ -62,6 +66,8 @@ class AuthServiceProvider extends ServiceProvider
         City::class => CityPolicy::class,
         MoneyCategory::class => CategoryPolicy::class,
         MoneySchedule::class => MoneySchedulePolicy::class,
+        NoteType::class => NoteTypePolicy::class,
+        Note::class => NotePolicy::class,
     ];
 
     /**

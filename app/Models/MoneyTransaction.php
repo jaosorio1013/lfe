@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MoneyTransaction extends Model
@@ -28,4 +29,19 @@ class MoneyTransaction extends Model
     protected $casts = [
         'date' => 'datetime',
     ];
+
+    public function payee(): BelongsTo
+    {
+        return $this->belongsTo(MoneyPayee::class);
+    }
+
+    public function account(): BelongsTo
+    {
+        return $this->belongsTo(MoneyAccount::class);
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

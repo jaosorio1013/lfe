@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Person;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -7,10 +8,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('money_tags', function (Blueprint $table) {
+        Schema::create('money_payees', function (Blueprint $table) {
             $table->id();
             $table->string('name')->index();
-            $table->boolean('active')->default(true);
+            $table->foreignIdFor(Person::class)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -18,6 +19,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('money_tags');
+        Schema::dropIfExists('money_payees');
     }
 };
